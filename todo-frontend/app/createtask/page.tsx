@@ -46,15 +46,16 @@ export default function CreateTaskPage() {
                   <path d="M9 12l3 3 5-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
-              <span className="text-xl font-bold text-gray-900">ToDo.</span>
+              <span className="text-xl font-bold text-gray-900">Add New Task</span>
             </div>
           </div>
         </header>
         {/* Create Task Form */}
-        <div className="p-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-8">Create New Task</h1>
+        <div className="p-8 flex items-center justify-center min-h-[calc(100vh-80px)]">
+          <div className="w-full max-w-lg">
+            <h1 className="text-3xl font-bold text-gray-900 mb-8 text-center">Create New Task</h1>
 
-          <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow p-8 space-y-6 max-w-lg">
+            <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow p-8 space-y-6">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Task Title
@@ -121,6 +122,7 @@ export default function CreateTaskPage() {
             Create Task
           </button>
         </form>
+          </div>
         </div>
       </main>
     </div>

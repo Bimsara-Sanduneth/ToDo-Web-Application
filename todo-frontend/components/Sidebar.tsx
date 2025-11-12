@@ -18,10 +18,36 @@ export default function Sidebar() {
   };
 
   const navItems = [
-    { label: 'All Tasks', path: '/AllTasks', icon: '≡' },
-    { label: 'Today', path: '/today', icon: '📅' },
-    { label: 'Reminders', path: '/remainders', icon: '🔔' },
+    { label: 'All Tasks', path: '/AllTasks', icon: 'tasks' },
+    { label: 'Today', path: '/today', icon: 'calendar' },
+    { label: 'Reminders', path: '/remainders', icon: 'bell' },
   ];
+
+  const getIcon = (iconType: string) => {
+    switch (iconType) {
+      case 'tasks':
+        return (
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 4a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2H3V4Zm0 6h7v10H4a1 1 0 0 1-1-1v-9Zm9 0h8v10a1 1 0 0 1-1 1h-7v-10Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        );
+      case 'calendar':
+        return (
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2" />
+            <path d="M3 10h18M8 1v6M16 1v6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          </svg>
+        );
+      case 'bell':
+        return (
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        );
+      default:
+        return null;
+    }
+  };
 
   return (
     <>
@@ -87,7 +113,7 @@ export default function Sidebar() {
                 isActive(item.path) ? 'bg-white/20 text-white' : 'text-white hover:bg-white/10'
               }`}
             >
-              <span className="text-xl">{item.icon}</span>
+              {getIcon(item.icon)}
               <span className="font-medium">{item.label}</span>
             </Link>
           ))}
